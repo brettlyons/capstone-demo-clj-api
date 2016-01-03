@@ -3,20 +3,21 @@
             [compojure.api.sweet :refer :all]
             [schema.core :as s]))
 
-(s/defschema Thingie {:id Long
-                      :hot Boolean
-                      :tag (s/enum :kikka :kukka)
-                      :chief [{:name String
-                               :type #{{:id String}}}]})
+;; (s/defschema Thingie {:id Long
+;;                       :hot Boolean
+;;                       :tag (s/enum :kikka :kukka)
+;;                       :chief [{:name String
+;;                                :type #{{:id String}}}]})
+;; unnecessary 
 
 (defapi service-routes
   (ring.swagger.ui/swagger-ui
    "/swagger-ui")
   ;JSON docs available at the /swagger.json route
   (swagger-docs
-    {:info {:title "Sample api"}})
+    {:info {:title "Simple api"}})
   (context* "/api" []
-            :tags ["thingie"]
+            :tags ["JSON echo and path-based multiplication"]
 
             ;; (GET* "/plus" []
             ;;       :return       Long
